@@ -6,6 +6,8 @@ import ImageModal from "../ImageModal/ImageModal";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import fetchImagesUnsplash from "../fetchImagesUnsplash";
+import "modern-normalize";
+import s from "./App.module.css";
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -51,7 +53,7 @@ const App = () => {
   }, [query, page]);
 
   return (
-    <div>
+    <div className={s.wrapper}>
       <SearchBar onSubmit={handleSearchSubmit} />
       {error && <ErrorMessage message={error} />}
       <ImageGallery images={images} onImageClick={openModal} />

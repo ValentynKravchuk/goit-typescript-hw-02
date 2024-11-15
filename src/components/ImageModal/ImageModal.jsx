@@ -21,12 +21,10 @@ const ImageModal = ({ image, onClose }) => {
       overlayClassName={s.Overlay}
       ariaHideApp={false}
     >
-      <button className={s.CloseButton} onClick={onClose}>
-        X
-      </button>
-
+      <p className={s.description}>{description}</p>
       {imageUrl ? (
         <img
+          className={s.image}
           src={imageUrl}
           alt={image.alt_description || "No description available"}
         />
@@ -35,7 +33,6 @@ const ImageModal = ({ image, onClose }) => {
       )}
 
       <p>Author: {authorName}</p>
-      <p>{description}</p>
       <p>Likes: {image.likes}</p>
     </Modal>
   );
