@@ -8,16 +8,17 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import fetchImagesUnsplash from "../fetchImagesUnsplash";
 import "modern-normalize";
 import s from "./App.module.css";
+import { Image } from "./App.types";
 
 const App = () => {
-  const [images, setImages] = useState([]);
-  const [page, setPage] = useState(1);
-  const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [images, setImages] = useState<Image[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [query, setQuery] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<Image | null>(null);
 
-  const handleSearchSubmit = (searchQuery) => {
+  const handleSearchSubmit = (searchQuery: string) => {
     if (searchQuery.trim() === "") {
       setError("Please enter a search query.");
       return;
@@ -29,7 +30,7 @@ const App = () => {
 
   const loadMore = () => setPage((prevPage) => prevPage + 1);
 
-  const openModal = (image) => setSelectedImage(image);
+  const openModal = (image: Image) => setSelectedImage(image);
 
   const closeModal = () => setSelectedImage(null);
 
