@@ -11,11 +11,7 @@ const fetchImagesUnsplash = async (
     query
   )}&page=${page}&per_page=12&client_id=${ACCESS_KEY}`;
   try {
-    const response = await axios.get(url);
-
-    if (!response.data || !response.data.results) {
-      throw new Error("No results found");
-    }
+    const response = await axios.get<FetchImagesResponse>(url);
 
     return response.data;
   } catch (error: unknown) {
