@@ -1,7 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 import s from "./ErrorMessage.module.css";
 
-const ErrorMessage = ({ message }) => (
+interface ErrorMessageProps {
+  message: string;
+}
+
+const ErrorMessage: FC<ErrorMessageProps> = ({ message }) => (
   <div className={s.errorMessage}>{message}</div>
 );
 

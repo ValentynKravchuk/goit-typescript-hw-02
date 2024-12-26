@@ -1,8 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 import Modal from "react-modal";
 import s from "./ImageModal.module.css";
+import { Image } from "../App/App.types";
 
-const ImageModal = ({ image, onClose }) => {
+interface User {
+  name: string;
+}
+interface ImageModalProps {
+  image: Image | null;
+  onClose: () => void;
+}
+
+const ImageModal: FC<ImageModalProps> = ({ image, onClose }) => {
   if (!image) {
     return null;
   }
